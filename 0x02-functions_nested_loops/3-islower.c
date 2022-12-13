@@ -6,6 +6,6 @@
  */
 int _islower(int c)
 {
-return(c >= 97 && c <= 122);
-return(0);
+return (c >= 97 && c <= 122);
+return (0);
 }
