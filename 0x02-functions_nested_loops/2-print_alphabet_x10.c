@@ -1,6 +1,6 @@
 #include "main.h"
 /*
- * print_alphabet_x10: Entry point
+ * print_alphabet_x10 - Entry point
  *
  * return:0
  */
