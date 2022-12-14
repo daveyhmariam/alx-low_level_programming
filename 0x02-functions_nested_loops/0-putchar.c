@@ -1,10 +1,13 @@
-#include "main.h"
-/**
- *main -Entry point
- *Return: Always 0 (Success)
- */
-int main(void)
+#include"main.h"
 
+
+/**
+* main - Print the word "_putchar"
+*
+* Return: Always 0 (Success)
+*/
+
+int main(void)
 {
 _putchar('_');
 _putchar('p');
@@ -18,5 +21,3 @@ _putchar('\n');
 
 return (0);
 }
-
-
