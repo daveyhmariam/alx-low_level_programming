@@ -16,10 +16,13 @@ unsigned int _strspn(char *s, char *accept)
 	{
 		if (s[i] == ' ')
 			break;
-		for (j = i; accept[j] != 0 && j<=i; j++)
+		for (j = i; accept[j] != 0 ; j++)
 		{
 			if (s[i] == accept[j])
-				c++;
+				{
+					c++;
+					i++;
+				}
 		}
 	}
 	return (c);
