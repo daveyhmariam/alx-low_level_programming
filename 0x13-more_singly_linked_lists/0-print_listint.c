@@ -12,6 +12,8 @@ size_t print_listint(const listint_t *h)
 {
     /*listint_t *tmp; */
     unsigned int i=0;
+    if (h==NULL)
+    return (0);
 
     while(h)
     {
