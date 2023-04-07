@@ -1,6 +1,6 @@
 #include "main.h"
 
-/dj n**
+/**
  * binary_to_uint - converts binary number to an unsigned int
  * @b: the string containing 0's and 1's to be converted to integer
  *

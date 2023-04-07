@@ -8,7 +8,7 @@
  *
  * Return: Always 0.
  */
-int main(void)
+/*int main(void)
 {
     list_t *head;
     list_t *new;
@@ -37,4 +37,4 @@ int main(void)
 
     free(new);
     return (0);
-}
+}*/
