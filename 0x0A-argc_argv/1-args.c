@@ -6,7 +6,7 @@
 * Return: returns 0 (success)
 */
 
-int main(int argc, char *argv[]__attribute((unused)))
+int main(int argc, char *argv[]__attribute__((unused)))
 {
    (void)argv;
 
