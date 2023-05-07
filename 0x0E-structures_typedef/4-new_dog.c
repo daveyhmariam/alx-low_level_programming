@@ -7,10 +7,11 @@
 * @age: a float 'age'
 * @owner: a string 'owner'
 * Return: returns a pointer to a struct
+* null if it fails
 */
-dog_t *new_dog(char *name, float age, char *owner)
+struct dog *new_dog(char *name, float age, char *owner)
 {
-dog_t *d=malloc(sizeof(dog_t));
+struct dog *d=malloc(sizeof(dog_t));
 if (!(d))
 {
 	return (NULL);
