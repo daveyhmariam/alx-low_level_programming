@@ -1,4 +1,4 @@
-ls#include <stdio.h>
+#include <stdio.h>
 
 /**
 * main - a program that prints its name
