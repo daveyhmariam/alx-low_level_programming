@@ -8,7 +8,8 @@
 
 int main(int argc, char* argv[])
 {
-    for (int count=0;count<argc;count++)
+    int count=0;
+    for (count=0;count<argc;count++)
     {
         printf("%s\n",argv[count]);
     }
