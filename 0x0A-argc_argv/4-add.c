@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-int main (int argc, char* argv[] __attribute__((__attribute_warn_unused_result__)))
+int main (int argc, char* argv[])
 {
     char* ptr=0;
     int sum=0;
@@ -15,7 +15,7 @@ int main (int argc, char* argv[] __attribute__((__attribute_warn_unused_result__
     
     for (i=1;i<argc;i++)
     {
-        sum+=argv[i];//strtol(argv[i],&ptr,10);
+        sum+=strtol(argv[i],&ptr,10);
         if (*ptr != 0)
         {
             printf("Error\n");
