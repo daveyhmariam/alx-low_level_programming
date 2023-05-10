@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
-* _strncat - a function that cocantenates two strings
+* _strncat - a function that cocantenates
 * @dest: the pointer to the cocantenated string
 * @src: the string to be appended
-* @n: the number of bytes from src to be appended
-* Return: returns a pointer to the string dest
+* @n: the number of bytes from src 
+* Return: returns a pointer 
 */
 char *_strncat(char *dest, char *src, int n)
 {

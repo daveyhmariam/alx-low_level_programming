@@ -3,7 +3,7 @@
 /**
 * puts2 - a function that prints every other character of
 * a string, followed by a new line, to stdout
-* @str: the string of characters to be printed
+* @str: the string of characters
 * Return: returns nothing
 */
 void puts2(char *str)

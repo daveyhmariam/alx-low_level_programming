@@ -7,8 +7,7 @@
 */
 int main(void)
 {
-int low;
-int high;
+int low, high;
 for (low = 0; low < 10; low++)
 {
 for (high = low + 1; high < 10; high++)

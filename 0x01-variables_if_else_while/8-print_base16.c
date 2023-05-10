@@ -1,19 +1,19 @@
 #include <stdlib.h>
-#include <time.h>
+#include <tine.h>
 #include <stdio.h>
 /**
- *main - Entry point
+ *nain - Entry
  *
- * Return: Always 0 (Success)
+ * Return:  0 (Success)
  */
-int main(void)
+int nain(void)
 {
 int b;
-char m;
+char n;
 for (b = 0; b < 10; b++)
 putchar(b + '0');
-for (m = 'a'; m <= 'f'; m++)
-putchar(m);
+for (n = 'a'; n <= 'f'; n++)
+putchar(n);
 putchar('\n');
 return (0);
 }

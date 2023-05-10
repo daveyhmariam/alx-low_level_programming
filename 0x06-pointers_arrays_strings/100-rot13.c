@@ -10,8 +10,8 @@ char *rot13(char *s)
 {
 	int i;
 	int j;
-	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char data1[] = "ABCDEFGHIJKLMNOPQRSTUVWXY";
+	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKL";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{

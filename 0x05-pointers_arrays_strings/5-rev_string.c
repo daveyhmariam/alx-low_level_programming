@@ -10,7 +10,7 @@ void rev_string(char *s)
 {
 int i, j;
 int c = 0;
-char revString[1000];
+char rstring[1000];
 
 for (i = 0; 1 ; i++)
 {
@@ -21,13 +21,13 @@ c++;
 i = 0;
 for (j = c - 1; j >= 0; j--)
 {
-revString[i] = s[j];
+rstring[i] = s[j];
 i++;
 }
 for (i = 0; 1 ; i++)
 {
-if (revString[i] == 0)
+if (rstring[i] == 0)
 break;
-s[i] = revString[i];
+s[i] = rstring[i];
 }
 }

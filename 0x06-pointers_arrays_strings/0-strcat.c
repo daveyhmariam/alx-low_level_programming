@@ -2,10 +2,10 @@
 #include "main.h"
 
 /**
-* _strcat - a function that cocantenates two strings
-* @dest: the pointer to the cocantenated string
+* _strcat - a function that cocantenates
+* @dest: the pointer to the cocantenated 
 * @src: the string to be appended
-* Return: returns a pointer to the string dest
+* Return: returns a pointer
 */
 char *_strcat(char *dest, char *src)
 {
