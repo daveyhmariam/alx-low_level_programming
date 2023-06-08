@@ -9,12 +9,11 @@ int is_prime_number(int n)
 {
 if (n <= 1)
 return (0);
-
 return (_prime(n, n - 1));
 }
 
 /**
-* prime_number - a recursive function that checks if a number is prime
+* _prime - a recursive function that checks if a number is prime
 * @n: the number to be checked
 * @i: iterator
 * Return: returns 1 if the number is prime and 0 if not
