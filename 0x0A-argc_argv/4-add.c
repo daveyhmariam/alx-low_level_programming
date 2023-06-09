@@ -24,7 +24,7 @@ for (; i < argc ; i++)
 s = argv[i];
 end = argv[i];
 strtol(s, &end, 10);
-if (end != argv[i])
+if (end != argv[i] || !isdigit(argv[i][0]))
 {
 if (*end == '\0')
 {
