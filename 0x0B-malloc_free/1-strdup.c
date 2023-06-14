@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *_strdup - function that returns 
+ *_strdup - function that returns
  *a pointer to a newly allocated space in memory
  *@str: a string to be copied
  *Return: Null if it fails
