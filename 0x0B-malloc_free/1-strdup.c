@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- *_strdup - function that returns a pointer to a newly allocated space in memory
- @str: a string to be copied
- Return: Null if it fails
-         pointer to memory on success
+ *_strdup - function that returns 
+ *a pointer to a newly allocated space in memory
+ *@str: a string to be copied
+ *Return: Null if it fails
+ *pointer to memory on success
 */
 char *_strdup(char *str)
 {
-char* ptr;
+char *ptr;
 int j;
 int count = 0;
 if (str == NULL)
@@ -26,7 +27,7 @@ break;
 ptr = malloc(sizeof(char) * count);
 if (!ptr)
 return (NULL);
-for (j = 0 ; j< count ; j++)
+for (j = 0 ; j < count ; j++)
 {
 *(ptr + j) = *(str + j);
 }
