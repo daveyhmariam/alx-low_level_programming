@@ -32,7 +32,7 @@ for (; (i < size2) && (i < n); i++)
 ptr[i] = s2[j];
 j++;
 }
-ptr[i] = '\0';
+ptr[i + 1] = '\0';
 return (ptr);
 }
 
