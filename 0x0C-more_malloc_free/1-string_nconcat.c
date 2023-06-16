@@ -25,13 +25,12 @@ for (i = 0; i < size1 ; i++)
 {
 ptr[i] = s1[i];
 }
-size2 += size1;
-for (; (i < size2) ; i++)
+for (; (j < size2) ; j++)
 {
 ptr[i] = s2[j];
-j++;
+i++;
 }
-ptr[i + 1] = '\0';
+ptr[i + 4] = '\0';
 return (ptr);
 }
 
