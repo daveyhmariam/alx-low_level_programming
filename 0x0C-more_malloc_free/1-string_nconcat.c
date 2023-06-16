@@ -1,41 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
 #include "main.h"
-#include <stdlib.h>
-
 /**
-* string_nconcat - a function that concatenates two strings
-* @s1: the first string
-* @s2: the second string
-* @n: the number of bytes of s2 to be concatenated
-* Return: returns a pointer to a new string which contains
-* s1 followed by the first n bytes of s2, and a=the null-terminator
+ * string_nconcat - unction that concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: number of bytes to be copied from s2
+ * Return: pointer to memory
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, j;
-	unsigned int c1 = 0, c2 = 0, c = 0;
-	char *str;
+unsigned int size1, size2;
+char *ptr;
+unsigned int i, j = 0;
+size1 = counter(s1);
+size2 = counter(s2);
 
-	if (s1 != NULL)
-		for (i = 0; s1[i] != '\0'; i++)
-			c1++;
+if (size2 > n)
+size2 = n;
+ptr = malloc(sizeof(int) * (size1 + size2 + 1));
+if (!ptr)
+return (NULL);
+for (i = 0; i < size1 ; i++)
+{
+ptr[i] = s1[i];
+}
+size2 += size1;
+for (; (i < size2) ; i++)
+{
+ptr[i] = s2[j];
+j++;
+}
+ptr[i + 1] = '\0';
+return (ptr);
+}
 
-	if (s2 != NULL)
-		for (i = 0; s2[i] != '\0'; i++)
-			if (i < n)
-				c2++;
-
-	c = c1 + c2 + 1;
-
-	str = malloc(c);
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0; i < c1; i++)
-		str[i] = s1[i];
-
-	for (j = 0 ; j < c2; i++, j++)
-		str[i] = s2[j];
-	str[i] = '\0';
-
-	return (str);
+/**
+ * counter - counts the size of a string
+ * @str: the string arg
+ * Return: the size of str
+*/
+int counter(char *str)
+{
+int i;
+int c = 0;
+if (str != NULL)
+{
+for (i = 0; str[i] != '\0'; i++)
+{
+c++;
+}
+}
+return (c);
 }
