@@ -19,7 +19,7 @@ size2 = counter(s2);
 if (size2 > n)
 size2 = n;
 ptr = malloc(sizeof(int) * (size1 + size2 + 1));
-if (!ptr)
+if (ptr == NULL)
 return (NULL);
 for (i = 0; i < size1 ; i++)
 {
