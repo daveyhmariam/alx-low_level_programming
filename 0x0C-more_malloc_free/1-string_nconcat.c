@@ -12,7 +12,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 unsigned int size1, size2;
 char *ptr;
-unsigned int i, j = 0;
+unsigned int i, j;
 size1 = counter(s1);
 size2 = counter(s2);
 
@@ -25,12 +25,11 @@ for (i = 0; i < size1 ; i++)
 {
 ptr[i] = s1[i];
 }
-for (; (j < size2) ; j++)
+for (j = 0; j < size2 ; i++, j++)
 {
 ptr[i] = s2[j];
-i++;
 }
-ptr[i + 4] = '\0';
+ptr[i] = '\0';
 return (ptr);
 }
 
