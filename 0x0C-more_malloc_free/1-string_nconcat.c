@@ -15,7 +15,10 @@ char *ptr;
 unsigned int i, j = 0;
 size1 = counter(s1);
 size2 = counter(s2);
+if (size2 < n)
 ptr = malloc(sizeof(int) * (size1 + size2 + 1));
+if (size2 > n)
+ptr = malloc(sizeof(int) * (size1 + n + 1));
 if (!ptr)
 return (NULL);
 for (i = 0; i < size1 ; i++)
