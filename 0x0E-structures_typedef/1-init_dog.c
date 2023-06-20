@@ -4,9 +4,9 @@
 
 /**
 * init_dog - a function that initialize a variable of type struct dog
-* @d: a pointer to the struct dog
-* @name: a string 'name'
-* @age: a float 'age'
+* @d: pointer to the struct dog
+* @name: name
+* @age: age
 * @owner: a string 'owner'
 * Return: returns nothing
 */
