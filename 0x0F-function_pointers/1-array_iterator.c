@@ -17,6 +17,6 @@ size_t count;
 if (array == NULL || action == NULL)
 return;
 for (count = 0; count < size; count++)
-(*action)(array);
+(*action)(array[count]);
 return;
 }
