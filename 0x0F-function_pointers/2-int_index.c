@@ -11,12 +11,4 @@
  *operating function accepting int and returning void
  *Return: nothing
  **/
-void array_iterator(int *array, size_t size, void (*action)(int))
-{
-size_t count;
-if (array == NULL || action == NULL || size <= 0)
-return;
-for (count = 0; count < size; count++)
-(*action)(array[count]);
-return;
-}
+int int_index(int *array, int size, int (*cmp)(int))
