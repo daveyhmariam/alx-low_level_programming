@@ -3,8 +3,9 @@
 
 /**
  *print_name - prints the given argument using the function
- *@name - the argument to be printed
- *@f - pointer to a function
+ *@name:The argument to be printed
+ *@f:Pointer to a function
+ *Return: none
 */
 void print_name(char *name, void (*f)(char *))
 {
