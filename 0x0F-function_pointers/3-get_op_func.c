@@ -22,7 +22,7 @@ op_t ops[] = {
 int i = 0;
 while (i < 6 && s != NULL)
 {
-if (strcmp(s,ops[i].op) == 0)
+if (strcmp(s, ops[i].op) == 0)
 {
 return (ops[i].f);
 }

@@ -42,7 +42,7 @@ int op_div(int a, int b)
 {
 if (b != 0)
 return (a / b);
-printf("Error\n");
+printf ("Error\n");
 exit (100);
 }
 /**
@@ -55,6 +55,6 @@ int op_mod(int a, int b)
 {
 if (b != 0)
 return (a % b);
-printf("Error\n");
+printf ("Error\n");
 exit (100);
 }

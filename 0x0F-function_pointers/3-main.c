@@ -20,10 +20,10 @@ exit(98);
 op = (*get_op_func)(argv[2]);
 if (op == NULL)
 {
-printf("Error\n");
-exit(99);
+printf ("Error\n");
+exit (99);
 }
 result = (*op)(atoi(argv[1]), atoi(argv[3]));
-printf("%d\n", result);
+printf ("%d\n", result);
 return (0);
 }
