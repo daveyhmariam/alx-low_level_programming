@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- *s_prime_number -  function that tells prime number
+ * is_prime_number -  function that tells prime number
  * @n: int argument
  * Return: int
 */
