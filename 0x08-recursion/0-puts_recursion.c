@@ -4,7 +4,7 @@
 /**
  *_puts_recursion -  prints a string, followed by a new line
  *@s: string to be prited
- *Return: return a nonnegative number on success, or EOF on error
+ *Return: void
 */
 void _puts_recursion(char *s)
 {
