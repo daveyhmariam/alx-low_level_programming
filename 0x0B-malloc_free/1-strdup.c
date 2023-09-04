@@ -16,7 +16,7 @@ char *s;
 i = 0;
 if (str == NULL)
 return (NULL);
-len = _strlen(str) + 1;
+len = _strlen(str);
 s = (char *) malloc(sizeof(char) * len);
 if (s == NULL)
 return (NULL);
