@@ -17,9 +17,10 @@ arr = (char *) malloc(sizeof(char) * size);
 if (!arr)
 return (NULL);
 size -= 1;
-while (i++ < size)
+while (i < size)
 {
 arr[i] = c;
+i++;
 }
 return (arr);
 }
