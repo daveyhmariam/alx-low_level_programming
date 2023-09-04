@@ -3,7 +3,7 @@
  * create_array - function that creates an array of chars,
  * and initializes it with a specific char
  * @size: size of the char
- * @char: the char to be written
+ * @c: the char to be written
  * Return: NULL if size = 0
  *         pointer to the array, or NULL if it fails
 */
