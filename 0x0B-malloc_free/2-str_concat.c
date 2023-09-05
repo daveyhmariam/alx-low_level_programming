@@ -17,12 +17,12 @@ len = _strlen(s1) + _strlen(s2) + 1;
 arr = (char *) malloc (sizeof(char) * len);
 if (!arr)
 return (NULL);
-while (i < len && s1[i] != '\0' && s1 != NULL)
+while (i < len && s1[i] != '\0')
 {
 arr[i] = s1[i];
 i++;
 }
-while (i < len && s2[c] != '\0' && s2 != NULL)
+while (i < len && s2[c] != '\0')
 {
 arr[i] = s2[c];
 i++;
@@ -39,13 +39,12 @@ return (arr);
 int _strlen(char *str)
 {
 int count = 0;
-if (*str == '\0')
-return (0);
-if (!str)
-return (1);
+if (str != NULL)
+{
 while (str[count] != '\0')
 {
 count++;
+}
 }
 return (count);
 }
