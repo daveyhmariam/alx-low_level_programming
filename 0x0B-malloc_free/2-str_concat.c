@@ -17,10 +17,6 @@ len = _strlen(s1) + _strlen(s2) - 1;
 arr = (char *) malloc (sizeof(char) * len);
 if (!arr)
 return (NULL);
-if (s1 == NULL)
-*s1 = '\0';
-if (s2 == NULL)
-*s2 = '\0';
 while (i < len && s1[i] != '\0')
 {
 
