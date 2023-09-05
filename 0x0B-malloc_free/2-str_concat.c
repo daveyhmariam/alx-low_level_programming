@@ -13,13 +13,12 @@ int i, c;
 char *arr;
 i = 0;
 c = 0;
-len = _strlen(s1) + _strlen(s2) - 1;
+len = _strlen(s1) + _strlen(s2) + 1;
 arr = (char *) malloc (sizeof(char) * len);
 if (!arr)
 return (NULL);
 while (i < len && s1[i] != '\0')
 {
-
 arr[i] = s1[i];
 i++;
 }
@@ -40,12 +39,13 @@ return (arr);
 int _strlen(char *str)
 {
 int count = 0;
-if (!str && *str == '\0')
+if (*str == '\0')
 return (0);
+if (!str)
+return (1);
 while (str[count] != '\0')
 {
 count++;
 }
-count++;
 return (count);
 }
