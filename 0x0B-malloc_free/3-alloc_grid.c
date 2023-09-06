@@ -7,6 +7,20 @@
  * Pointer to 2D array of int
 */
 int **alloc_grid(int width, int height)
+/*{
+int **arr[width];
+int r, c, ptr;
+r =  0;
+c = 0;
+ptr = 0;
+if (width <= 0 || height <= 0)
+return (NULL);
+while (r < width)
+{
+arr[r] = (int *) malloc(sizeof(int) * height);
+if
+}
+}*/
 {
 int r, c, ptr;
 int **arr;
@@ -19,7 +33,10 @@ return (NULL);
 }
 arr = (int **) malloc (sizeof(int *) * width);
 if (!arr)
+{
+free(arr);
 return (NULL);
+}
 for (; ptr < width; ptr++)
 {
 arr[ptr] = (int *) malloc (sizeof(int) * height);
@@ -30,8 +47,8 @@ for (; ptr >= 0; ptr--)
 free (arr[ptr]);
 }
 free (arr);
-}
 return (NULL);
+}
 }
 for (; r < width; r++)
 {
