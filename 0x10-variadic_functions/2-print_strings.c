@@ -17,7 +17,10 @@ str = va_arg(l, char *);
 if (str != NULL)
 printf("%s", str);
 if (str == NULL)
+{
 printf ("(nil)");
+break;
+}
 if (n == i + 1)
 break;
 if (separator != NULL)
