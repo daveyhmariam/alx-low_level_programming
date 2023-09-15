@@ -1,3 +1,4 @@
+#include <string.h>
 #include "variadic_functions.h"
 /**
  * print_strings - prints string arguments
@@ -16,7 +17,7 @@ for (i = 0; i < n; i++)
 str = va_arg(l, char *);
 if (str != NULL)
 printf("%s", str);
-if (*str == '\0')
+if (strcmp(str, "") == 0)
 printf ("(nil)");
 if (n == i + 1)
 break;
