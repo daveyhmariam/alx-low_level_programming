@@ -48,6 +48,7 @@ if (format[i + 1] == '\0')
 break;
 i++;
 }
+va_end(l);
 printf("\n");
 return;
 }
