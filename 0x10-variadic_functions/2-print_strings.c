@@ -16,7 +16,7 @@ for (i = 0; i < n; i++)
 str = va_arg(l, char *);
 if (str != NULL)
 printf("%s", str);
-if (*str == '\0')
+if (str == NULL)
 printf ("(nil)");
 if (n == i + 1)
 break;
