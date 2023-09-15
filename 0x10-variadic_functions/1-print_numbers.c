@@ -13,6 +13,8 @@ va_start(l, n);
 for (i = 0; i < n; i++)
 {
 printf("%d", va_arg(l, int));
+if (i == --n)
+break;
 if (separator != NULL)
 printf("%s", separator);
 }
