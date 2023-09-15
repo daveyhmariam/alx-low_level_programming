@@ -18,6 +18,6 @@ for (; i < n; i++)
 {
 result += va_arg(l, int);
 }
-va_end (l);
+va_end(l);
 return (result);
 }
