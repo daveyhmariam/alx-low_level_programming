@@ -5,7 +5,7 @@
  * @h: pointer to pointer to entry point
  * @idx: index to be inserted at
  * @n: new element
- * Return
+ * Return: pointer to new node
 */
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
@@ -16,28 +16,28 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new = (dlistint_t *) malloc(sizeof(dlistint_t));
 	if (!new)
 		return (NULL);
-	new->n = n;
-	tmp = *h;
 	count = 0;
-
-	while (tmp->prev != NULL)
+	new->n = n;
+	new->next = NULL;
+	new->prev = NULL;
+	tmp = *h;
+	while (tmp->prev)
 	{
 		tmp = tmp->prev;
 	}
-
-	while (tmp != NULL)
+	while (count < idx)
 	{
-		if (count == idx)
-			break;
 		tmp = tmp->next;
 		count++;
 	}
-	if (tmp == NULL)
-		return (NULL);
 	new->next = tmp;
-	new->prev = tmp->prev;
-	(new->prev)->next = new;
+	if (tmp->prev)
+	{
+		new->prev = tmp->prev;
+		tmp->prev->next = new;
+	}
+	if (!(tmp->prev))
+		new->prev = NULL;
 	tmp->prev = new;
 	return (new);
-
 }
