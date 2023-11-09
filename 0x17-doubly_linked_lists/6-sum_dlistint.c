@@ -7,18 +7,18 @@
 */
 int sum_dlistint(dlistint_t *head)
 {
-    int sum;
-    dlistint_t *tmp;
+	int sum;
+	dlistint_t *tmp;
 
-    if (!head)
-        return (0);
-    sum = 0;
-    while (tmp->prev != NULL)
-        tmp = tmp->prev;
-    while (tmp != NULL)
-    {
-        sum = sum + tmp->n;
-        tmp = tmp->next;
-    }
-    return (sum);
+	if (!head)
+		return (0);
+	sum = 0;
+	while (tmp->prev != NULL)
+		tmp = tmp->prev;
+	while (tmp != NULL)
+	{
+		sum = sum + tmp->n;
+		tmp = tmp->next;
+	}
+	return (sum);
 }
