@@ -8,63 +8,44 @@
 */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-    dlistint_t *tmp, *next, *prev;
-    unsigned int count;
+	dlistint_t *tmp, *del;
+	unsigned int count;
 
-    if (!head || !(*head))
-        return (-1);
-    tmp = *head;
-    count = 0;
-    while (tmp->prev)
-    {
-        tmp = tmp->prev;
-    }
-
-	while (tmp)
-	{
-		if (count == index)
-			break;
-		tmp = tmp->next;
-		count++;
-	}
-	if (!tmp)
+	tmp = *head;
+	if (tmp == NULL)
 		return (-1);
-    next = tmp->next;
-	prev = tmp->prev;
-
-	if (next && prev)
+	while (tmp->prev)
+		tmp = tmp->prev;
+	if (index == 0)
 	{
-		next->prev = prev;
-		prev->next = next;
-		*head = prev;
-		free(tmp);
+		del = tmp;
+		tmp = tmp->next;
+		if (tmp)
+			tmp->prev = NULL;
+		*head = tmp;
+		free(del);
 		return (1);
 	}
 	else
 	{
-		if (!next && prev)
-			{
-				prev->next = NULL;
-				*head = prev;
-				free(tmp);
-				return (1);
-			}
-		if (!prev && next)
-			{
-				next->prev = NULL;
-				*head = next;
-				free(tmp);
-				return (1);
-			}
-		else
+		count = 1;
+		while (tmp)
 		{
-			*head = NULL;
-			free(tmp);
-			return (1);
+			if (count == index)
+			{
+				del = tmp->next;
+				if (!del)
+					return (-1);
+				tmp->next = del->next;
+				if (del->next)
+					del->next->prev = tmp;
+				*head = tmp;
+				free(del);
+				return (1);
+			}
+			count++;
+			tmp = tmp->next;
 		}
 	}
-
-
-    return (-1);
-
+	return (-1);
 }
