@@ -1,0 +1,4 @@
+#!/bin/bash
+
+code $py
+sudo chmod -R 777 $py
