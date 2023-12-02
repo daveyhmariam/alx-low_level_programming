@@ -41,93 +41,87 @@ shash_table_t *shash_table_create(unsigned long int size)
 
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	shash_node_t *new, *tmp, *order;
+	shash_node_t *new, *tmp;
 	unsigned long int idx;
 
-	if (!ht || !key || *key == '\0')
+	if (!ht || !key || *key == '\0' || !value)
 		return (0);
-
 	idx = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[idx];
-	new = NULL;
-	if (tmp == NULL)
+	while (tmp)
 	{
-		new = (shash_node_t *) malloc(sizeof(shash_node_t));
-		if (!new)
-			return (0);
-		new->key = strdup(key);
-		if (new->key == NULL)
+		if (strcmp(tmp->key, key) == 0)
 		{
-			free(new);
-			return (0);
+			free(tmp->value);
+			tmp->value = strdup(value);
+			if (tmp->value == NULL)
+				return (0);
+			return (1);
 		}
-		new->value = strdup(value);
-		if (new->value == NULL)
-		{
-			free(new->key);
-			free(new);
-			return (0);
-		}
-		new->next = NULL;
-		new->snext = NULL;
-		new->sprev = NULL;
-		new->next = ht->array[idx];
-		ht->array[idx] = new;
-
-
+		tmp = tmp->next;
 	}
-	if (tmp)
+	new = (shash_node_t *) malloc(sizeof(shash_node_t));
+	if (!new)
+		return (0);
+	new->key = strdup(key);
+	if (new->key == NULL)
 	{
-		while (tmp)
-		{
-			if (strcmp(tmp->key, key) == 0)
-			{
-				free(tmp->value);
-				tmp->value = strdup(value);
-				if (tmp->value == NULL)
-					return (0);
-			}
-			tmp = tmp->next;
-		}
-
+		free(new);
+		return (0);
 	}
-
-	if (new)
+	new->value = strdup(value);
+	if (!new->value)
 	{
-		if (ht->shead == NULL && ht->stail == NULL)
-		{
-			ht->shead = new;
-			ht->stail = new;
-		}
-		else if (ht->shead && ht->stail)
-		{
-			order = ht->shead;
-			while (order)
-			{
-				if (strcmp(new->key, order->key) < 0)
-				{
-					new->sprev = order->sprev;
-					new->snext = order;
-					order->sprev = new;
-					if (new->sprev)
-						new->sprev->snext = new;
-					if (new->sprev == NULL)
-						ht->shead = new;
-					break;
-				}
-				if (order->snext == NULL && strcmp(new->key, order->key) > 0)
-				{
-					new->sprev = order;
-					order->snext = new;
-					ht->stail = new;
-					break;
-				}
-				order = order->snext;
-			}
-
-		}
+		free(new->key);
+		free(new);
+		return (0);
 	}
+	new->next = ht->array[idx];
+	ht->array[idx] = new;
+	sorting(ht, new);
 	return (1);
+}
+
+
+/**
+ * sorting - order the nodes
+ * @ht: hash table
+ * @new: new hash node
+ * Return: Nothing
+*/
+void sorting(shash_table_t *ht, shash_node_t *new)
+{
+	shash_node_t *order;
+
+	if (ht->shead == NULL && ht->stail == NULL)
+	{
+		ht->shead = new;
+		ht->stail = new;
+		return;
+	}
+	order = ht->shead;
+	while (order)
+	{
+		if (strcmp(new->key, order->key) < 0)
+		{
+			new->snext = order;
+			new->sprev = order->sprev;
+			if (new->sprev)
+				new->sprev->snext = new;
+			order->sprev = new;
+			if (!new->sprev)
+				ht->shead = new;
+			return;
+		}
+		if (order->snext == NULL && strcmp(new->key, order->key) > 0)
+		{
+			order->snext = new;
+			new->sprev = order;
+			ht->stail = new;
+			return;
+		}
+		order = order->snext;
+	}
 }
 
 /**
