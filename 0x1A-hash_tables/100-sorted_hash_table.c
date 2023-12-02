@@ -49,7 +49,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 	idx = key_index((const unsigned char *)key, ht->size);
 	tmp = ht->array[idx];
-
+	new = NULL;
 	if (tmp == NULL)
 	{
 		new = (shash_node_t *) malloc(sizeof(shash_node_t));
@@ -63,17 +63,37 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		}
 		new->value = strdup(value);
 		if (new->value == NULL)
-			{
-				free(new->key);
-				free(new);
-				return (0);
-			}
+		{
+			free(new->key);
+			free(new);
+			return (0);
+		}
 		new->next = NULL;
 		new->snext = NULL;
 		new->sprev = NULL;
 		new->next = ht->array[idx];
 		ht->array[idx] = new;
-	
+
+
+	}
+	if (tmp)
+	{
+		while (tmp)
+		{
+			if (strcmp(tmp->key, key) == 0)
+			{
+				free(tmp->value);
+				tmp->value = strdup(value);
+				if (tmp->value == NULL)
+					return (0);
+			}
+			tmp = tmp->next;
+		}
+
+	}
+
+	if (new)
+	{
 		if (ht->shead == NULL && ht->stail == NULL)
 		{
 			ht->shead = new;
@@ -106,22 +126,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 			}
 
 		}
-		return (1);
-	}
-	if (tmp)
-	{
-		while (tmp)
-		{
-			if (strcmp(tmp->key, key) == 0)
-			{
-				free(tmp->value);
-				tmp->value = strdup(value);
-				if (tmp->value == NULL)
-					return (0);
-			}
-			tmp = tmp->next;
-		}
-
 	}
 	return (1);
 }
@@ -188,7 +192,8 @@ void shash_table_print(const shash_table_t *ht)
 }
 
 /**
- * shash_table_print_rev - prints all hash table elements in reverse sorted order
+ * shash_table_print_rev - prints all hash table
+ * elements in reverse sorted order
  * @ht: hash table entry
  * Return: Nothing
 */
