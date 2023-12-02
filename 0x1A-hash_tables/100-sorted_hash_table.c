@@ -84,47 +84,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 
 
 /**
- * sorting - order the nodes
- * @ht: hash table
- * @new: new hash node
- * Return: Nothing
-*/
-void sorting(shash_table_t *ht, shash_node_t *new)
-{
-	shash_node_t *order;
-
-	if (ht->shead == NULL && ht->stail == NULL)
-	{
-		ht->shead = new;
-		ht->stail = new;
-		return;
-	}
-	order = ht->shead;
-	while (order)
-	{
-		if (strcmp(new->key, order->key) < 0)
-		{
-			new->snext = order;
-			new->sprev = order->sprev;
-			if (new->sprev)
-				new->sprev->snext = new;
-			order->sprev = new;
-			if (!new->sprev)
-				ht->shead = new;
-			return;
-		}
-		if (order->snext == NULL && strcmp(new->key, order->key) > 0)
-		{
-			order->snext = new;
-			new->sprev = order;
-			ht->stail = new;
-			return;
-		}
-		order = order->snext;
-	}
-}
-
-/**
  * shash_table_get - get value with key
  * @ht: hash table
  * @key: searching key
