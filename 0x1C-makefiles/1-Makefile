@@ -1,23 +1,4 @@
-# Compiler
-CC := gcc
-
-# Source files
-SRC := $(wildcard *.c)
-
-# Object files
-OBJ := $(SRC:.c=.o)
-
-# Default target
-all: school
-
-# Rule to build the executable
-school: $(OBJ)
-    $(CC) $^ -o $@
-
-# Rule to compile .c files into object files
-%.o: %.c
-    $(CC) -c $< -o $@
-
-# Clean rule to remove object files and the executable
-clean:
-    rm -f $(OBJ) school
+CC = gcc
+SRC = main.c school.c
+all: $(SRC)
+    $(CC)	$(SRC)	-o	school
