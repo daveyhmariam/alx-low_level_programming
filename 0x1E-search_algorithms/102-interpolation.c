@@ -31,15 +31,9 @@ int interpolation_search(int *array, size_t size, int value)
 		if (array[pos] == value)
 			return (pos);
 		if (array[pos] < value)
-		{
-			printf("lesser");
 			low = pos + 1;
-		}
 		else if (array[pos] > value)
-		{
-			printf("greater");
 			high = pos - 1;
-		}
 	}
 	return (-1);
 }
