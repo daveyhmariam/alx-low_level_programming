@@ -1,6 +1,5 @@
 #include "search_algos.h"
 
-
 /**
  * interpolation_search - searches for a value in a sorted array of integers
  *                          using the Interpolation search algorithm
@@ -13,44 +12,34 @@
 
 int interpolation_search(int *array, size_t size, int value)
 {
-	size_t high = size - 1, low = 0;
-	int pos = 0;
+	int high = size - 1, low = 0, pos;
 
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
-	while (low < high && low !=high)
+	while (low < high && low != high)
 	{
-		pos = cal_pos(array, high, low, value);
+		pos = (double) (high - low) / (array[high] - array[low])
+		* (value - array[low]);
+		pos = (int) (low + pos);
 
-		if (pos < (int) size)
-			printf("Value checked array[%d] = [%d]\n", (int)pos, array[pos]);
+		if (pos >= (int) size)
+		{
+			printf("Value checked array[%d] is out of range\n", (int)pos);
+			return (-1);
+		}
+		printf("Value checked array[%d] = [%d]\n", (int)pos, array[pos]);
 		if (array[pos] == value)
 			return (pos);
 		if (array[pos] < value)
+		{
+			printf("lesser");
 			low = pos + 1;
-		else
+		}
+		else if (array[pos] > value)
+		{
+			printf("greater");
 			high = pos - 1;
-		if (low == high)
-			break;
-	}
-	if (pos >= (int) size)
-	{
-		printf("Value checked array[%d] is out of range\n", (int)pos);
+		}
 	}
 	return (-1);
-}
-
-/**
- * cal_pos - calculate prob position for interpolation search
- * @array: pointer to the first element of the array to search in
- * @high: upper index
- * @low: lower index
- * Return: the prob position
- **/
-int cal_pos(int *array, size_t high, size_t low, int value)
-{
-	size_t pos = ((high - low) / (array[high] - array[low]))
-				* (value - array[low]);
-	pos += low;
-	return ((int) pos);
 }
