@@ -29,7 +29,7 @@ int exponential_search(int *array, size_t size, int value)
 	{
 		printf("Searching in array:");
 		for (j = i; j <= e; j++)
-			printf("%s%d", j == i ? " ": ", ", array[j]);
+			printf("%s%d", j == i ? " " : ", ", array[j]);
 		printf("\n");
 		mid = (e + i) / 2;
 		if (array[mid] == value)
