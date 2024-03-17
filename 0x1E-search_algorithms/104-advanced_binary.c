@@ -27,8 +27,12 @@ int split_array(int *array, int high, int low, int value)
 	int mid, i;
 
 	printf("Searching in array:");
-	for (i = low; i <= high; i++)
+	i = low
+	for (i <= high)
+	{
 		printf("%s%d", i == low ? " ": ", ", array[i]);
+		i++;
+	}
 	printf("\n");
 	mid = (high + low) / 2;
 	if (low <= high)
