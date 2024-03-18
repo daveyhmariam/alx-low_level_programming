@@ -43,6 +43,7 @@ int split_array(int *array, int high, int low, int value)
 	mid = (high + low) / 2;
 	if (low <= high)
 	{
+
 		if (array[mid - 1] == value && array[mid] == value)
 			return (split_array(array, mid, mid - 1, value));
 		if (array[mid] == value && array[mid - 1] != value)
@@ -50,7 +51,7 @@ int split_array(int *array, int high, int low, int value)
 		if (array[mid] < value && mid < high)
 			return (split_array(array, high, mid + 1, value));
 		if (array[mid] > value)
-			return (split_array(array, mid - 1, low, value));
+			return (split_array(array, mid, low, value));
 		if (low == high)
 			return (-1);
 	}
