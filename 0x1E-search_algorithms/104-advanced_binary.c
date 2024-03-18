@@ -41,19 +41,17 @@ int split_array(int *array, int high, int low, int value)
 		printf("%s%d", i == low ? " " : ", ", array[i]);
 	printf("\n");
 	mid = (high + low) / 2;
-	if (low <= high)
+	if (mid <= high)
 	{
 
-		if (array[mid - 1] == value && array[mid] == value)
-			return (split_array(array, mid, mid - 1, value));
 		if (array[mid] == value && array[mid - 1] != value)
 			return (mid);
+		if (array[mid] == value && array[mid - 1] == value)
+			return (split_array(array, mid, low, value));
 		if (array[mid] < value && mid < high)
 			return (split_array(array, high, mid + 1, value));
 		if (array[mid] > value)
 			return (split_array(array, mid, low, value));
-		if (low == high)
-			return (-1);
 	}
 	return (-1);
 }
